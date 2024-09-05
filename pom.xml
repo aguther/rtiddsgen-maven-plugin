@@ -4,7 +4,7 @@
 
   <groupId>io.github.aguther.dds.maven</groupId>
   <artifactId>rtiddsgen-maven-plugin</artifactId>
-  <version>0.1.0</version>
+  <version>0.2.0-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
 
   <description>Maven Plugin to use rtiddsgen (part of RTI Connext DDS) for IDL files and transform them to Java code
@@ -37,7 +37,7 @@
     <connection>scm:git:git@github.com:aguther/rtiddsgen-maven-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:aguther/rtiddsgen-maven-plugin.git</developerConnection>
     <url>git@github.com:aguther/rtiddsgen-maven-plugin.git</url>
-    <tag>v0.1.0</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <properties>
