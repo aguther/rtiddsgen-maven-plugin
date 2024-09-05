@@ -1,0 +1,24 @@
+/*
+ * SPDX-License-Identifier: MIT
+ * Copyright 2024 Andreas Guther
+ */
+
+enum RequestKind {
+  START,
+  STOP
+};
+
+struct RequestType {
+  long id;
+  RequestKind request;
+};
+
+enum ReplyResult {
+  FAILED,
+  SUCCESS
+};
+
+struct ReplyType {
+  ReplyResult result;
+  string description;
+};

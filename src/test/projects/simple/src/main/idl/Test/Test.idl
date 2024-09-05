@@ -1,0 +1,128 @@
+/*
+ * SPDX-License-Identifier: MIT
+ * Copyright 2024 Andreas Guther
+ */
+
+module test {
+
+/* FIRST VERSION */
+
+module v1 {
+
+  @mutable
+  enum UnionTypeDiscriminant {
+    ONE,
+    TWO
+  };
+
+  @nested
+  @mutable
+  struct StructOne {
+    @id(1) long number;
+  };
+
+  @nested
+  @mutable
+  struct StructTwo {
+    @id(1)
+    long number;
+    @id(2)
+    string<128> text;
+  };
+
+  @nested
+  @mutable
+  union UnionType switch (UnionTypeDiscriminant) {
+    case ONE:
+      @id(1)
+      StructOne one;
+    case TWO:
+      @id(2)
+      StructTwo two;
+  };
+
+  @mutable
+  struct MutableType {
+    @key
+    @id(1)
+    long key;
+    @id(2)
+    UnionType unionType;
+    @id(3)
+    StructTwo arrayType[2];
+    @id(4)
+    sequence<StructTwo, 2> sequenceType;
+    @id(10)
+    string<255> text;
+  };
+
+};
+
+/* SECOND VERSION */
+
+module v2 {
+
+  @mutable
+  enum UnionTypeDiscriminant {
+    ONE,
+    TWO,
+    THREE
+  };
+
+  @nested
+  @mutable
+  struct StructOne {
+    @id(1)
+    long number;
+  };
+
+  @nested
+  @mutable
+  struct StructTwo {
+    @id(1)
+    long number;
+    @id(2)
+    string<128> text;
+  };
+
+  @nested
+  @mutable
+  struct StructThree {
+    @id(1)
+    string<128> text;
+  };
+
+  @nested
+  @mutable
+  union UnionType switch (UnionTypeDiscriminant) {
+    case ONE:
+      @id(1)
+      StructOne one;
+    case TWO:
+      @id(2)
+      StructTwo two;
+    case THREE:
+      @id(3)
+      StructThree three;
+  };
+
+  @mutable
+  struct MutableType {
+    @key
+    @id(1)
+    long key;
+    @id(2)
+    UnionType unionType;
+    @id(3)
+    StructTwo arrayType[2];
+    @id(4)
+    sequence<StructTwo, 2> sequenceType;
+    @id(5)
+    long newNumber;
+    @id(10)
+    string<255> text;
+  };
+
+};
+
+};
